@@ -8,19 +8,19 @@ The `lib/` folder is where various components of projects will reside. It includ
 
 To include a module or component in other parts of the code, first we need to create a symlink to the lib folder inside the `node_modules` folder.
 
-```
+```shell
 cd node_modules
-ln -s ../lib _  //I used the underscore symbol here, you can use whatever name you want
+ln -s ../lib _  #I used the underscore symbol here, you can use whatever name you want
 ```
 
 Then, inside any other file that wants to include a component
 
-```
+```javascript
 var user = require('_/users')  // use the name you choose instead of '_'
 ```
 
 This will automatically include the index.js inside the `lib/users/` folder. However, if you want to use a different name other than index.js (say users.js) and you also have multiple files inside this `users` folder, then you need to create a `package.json` file inside `users/` folder.
 
-```
+```shell
 echo '{ "main": "users.js" }' > lib/users/package.json
 ```
